@@ -19,8 +19,12 @@
 	&__menu {
 		ul {
 			display: flex;
-			gap: 1rem;
+			gap: 2rem;
 			align-items: center;
+
+			li {
+				position: relative;
+			}
 		}
 
 		a {
@@ -30,5 +34,21 @@
 				opacity: 0.75;
 			}
 		}
+	}
+
+	&__badge {
+		position: absolute;
+		top: -8px;
+		right: -18px;
+		background-color: $theme-color;
+		width: 16px;
+		height: 16px;
+		line-height: 16px;
+		display: block;
+		text-align: center;
+		border-radius: 1rem;
+		font-size: 12px;
+		font-weight: bold;
+		padding: 2px;
 	}
 }

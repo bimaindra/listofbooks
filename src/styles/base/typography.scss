@@ -3,9 +3,10 @@
 ==================================*/
 
 body {
-	font-family: $body-font;
+	font-family: $font-default;
+	font-weight: $body-font;
 	line-height: $line-height-base;
-	font-size: $font-size-base + 2;
+	font-size: $font-size-base;
 }
 
 /*----------  Heading  ----------*/
@@ -16,7 +17,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: $heading-font;
+	font-weight: $heading-font;
 }
 
 dl,
@@ -32,8 +33,14 @@ a {
 	color: $theme-color;
 }
 
-em {
+em,
+i {
 	font-style: italic;
+}
+
+strong,
+b {
+	font-weight: bold;
 }
 
 .c-link-initial {

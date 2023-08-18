@@ -20,7 +20,7 @@ const Favorite = () => {
 
 	return (
 		<div className="container">
-			<h1 className="c-page-title">List of Favorite Books</h1>
+			<h1 className="c-page-title">List of Favourite Books</h1>
 			{favorites.length ? (
 				<>
 					{favorites.map((item: FavoriteBookType) => (
@@ -48,7 +48,7 @@ const Favorite = () => {
 					))}
 				</>
 			) : (
-				<p>There is no favorite book.</p>
+				<p>There is no favourite book being added.</p>
 			)}
 		</div>
 	);

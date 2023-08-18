@@ -7,6 +7,7 @@ import { useState } from 'react';
 const Home = () => {
 	const [itemOffset, setItemOffset] = useState(0);
 	const itemsPerPage = 5;
+	const endOffset = itemOffset + itemsPerPage;
 
 	const fetchBooks = () =>
 		fetch('https://my-json-server.typicode.com/cutamar/mock/books').then(
@@ -34,7 +35,6 @@ const Home = () => {
 		);
 	}
 
-	const endOffset = itemOffset + itemsPerPage;
 	const currentItems = data.slice(itemOffset, endOffset);
 	const pageCount = Math.ceil(data.length / itemsPerPage);
 

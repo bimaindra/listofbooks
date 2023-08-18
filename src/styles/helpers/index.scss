@@ -6,6 +6,15 @@
 	text-align: center;
 }
 
+.text-right {
+	text-align: right;
+}
+
 .mb-base {
 	margin-bottom: 1rem;
+}
+
+.img-book {
+	object-fit: cover;
+	aspect-ratio: 3 / 4;
 }

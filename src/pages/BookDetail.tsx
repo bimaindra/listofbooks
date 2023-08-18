@@ -72,19 +72,33 @@ const BookDetail = () => {
 			<img
 				src={data.cover}
 				alt={data.title}
+				className="img-book"
 			/>
-			<p className="mb-base">{data.description}</p>
-			<p className="mb-base">By: {data.author}</p>
-			<p className="mb-base">
-				Published at: {formatDate(data.publicationDate)}
-			</p>
-			<button
-				className="btn"
-				onClick={handleAddToFavorite}>
-				{favoritesId.includes(data.id)
-					? 'Remove from Favorites'
-					: 'Add to Favorites'}
-			</button>
+			<br />
+			<br />
+			<div className="mb-base">
+				<h2>Synopsis</h2>
+				<p>{data.description}</p>
+			</div>
+			<div className="mb-base">
+				<h2>Author</h2>
+				<p>{data.author}</p>
+			</div>
+			<div className="mb-base">
+				<h2>Published at</h2>
+				<p>{formatDate(data.publicationDate)}</p>
+			</div>
+			<hr />
+			<div className="mb-base"></div>
+			<div className="text-right">
+				<button
+					className="btn"
+					onClick={handleAddToFavorite}>
+					{favoritesId.includes(data.id)
+						? 'Remove from Favorites'
+						: 'Add to Favorites'}
+				</button>
+			</div>
 		</div>
 	);
 };

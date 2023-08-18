@@ -18,8 +18,14 @@ const Card = ({
 				<p className="hidden">{description}</p>
 			</div>
 			<div className="c-card__foot">
-				<span>{author}</span>
-				<span>{formatDate(publicationDate)}</span>
+				<span>
+					<strong>By:</strong> <br />
+					{author}
+				</span>
+				<span className="text-right">
+					<strong>Published at:</strong> <br />
+					{formatDate(publicationDate)}
+				</span>
 			</div>
 		</div>
 	);
