@@ -1,0 +1,106 @@
+@mixin border-radius($val) {
+	-webkit-border-radius: ($val);
+	-moz-border-radius: ($val);
+	-ms-border-radius: ($val);
+	-o-border-radius: ($val);
+	border-radius: ($val);
+}
+
+@mixin transition($val) {
+	-webkit-transition: ($val);
+	-moz-transition: ($val);
+	-ms-transition: ($val);
+	-o-transition: ($val);
+	transition: ($val);
+}
+
+@mixin translateX($val) {
+	-webkit-transform: translateX($val);
+	-moz-transform: translateX($val);
+	-ms-transform: translateX($val);
+	-o-transform: translateX($val);
+	transform: translateX($val);
+}
+
+@mixin translateY($val) {
+	-webkit-transform: translateY($val);
+	-moz-transform: translateY($val);
+	-ms-transform: translateY($val);
+	-o-transform: translateY($val);
+	transform: translateY($val);
+}
+
+@mixin rotate($val) {
+	-webkit-transform: rotate($val);
+	-moz-transform: rotate($val);
+	-ms-transform: rotate($val);
+	-o-transform: rotate($val);
+	transform: rotate($val);
+}
+
+@mixin scale($val) {
+	-webkit-transform: scale($val);
+	-moz-transform: scale($val);
+	-ms-transform: scale($val);
+	-o-transform: scale($val);
+	transform: scale($val);
+}
+
+@mixin scaleX($val) {
+	-webkit-transform: scaleX($val);
+	-moz-transform: scaleX($val);
+	-ms-transform: scaleX($val);
+	-o-transform: scaleX($val);
+	transform: scaleX($val);
+}
+
+// Clearfix
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+//
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: ' '; // 1
+		display: table; // 2
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+// RESPONSIVE
+
+@mixin mobile {
+	@media (max-width: 599px) {
+		@content;
+	}
+}
+@mixin tablet-potrait {
+	@media (min-width: 600px) {
+		@content;
+	}
+}
+@mixin tablet-landscape {
+	@media (min-width: 900px) {
+		@content;
+	}
+}
+@mixin desktop {
+	@media (min-width: 1200px) {
+		@content;
+	}
+}
+@mixin big-desktop {
+	@media (min-width: 1800px) {
+		@content;
+	}
+}

@@ -1,0 +1,48 @@
+/*==================================
+=            Typography            =
+==================================*/
+
+body {
+	font-family: $body-font;
+	line-height: $line-height-base;
+	font-size: $font-size-base + 2;
+}
+
+/*----------  Heading  ----------*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $heading-font;
+}
+
+dl,
+dt,
+dd,
+ol,
+ul,
+li {
+	padding: 0;
+}
+
+a {
+	color: $theme-color;
+}
+
+em {
+	font-style: italic;
+}
+
+.c-link-initial {
+	text-decoration: none;
+	color: inherit;
+}
+
+.c-page-title {
+	font-size: 24px;
+	font-weight: bolder;
+	margin-bottom: 18px;
+}

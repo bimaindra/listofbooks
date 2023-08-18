@@ -1,0 +1,30 @@
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	max-width: 100%;
+
+	@include tablet-landscape {
+		max-width: 980px;
+	}
+
+	@include desktop {
+		max-width: 1024px;
+	}
+}
+
+main {
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
+.grid {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(2, 1fr);
+
+	@include tablet-potrait {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

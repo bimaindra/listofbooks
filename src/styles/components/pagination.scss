@@ -1,0 +1,29 @@
+.c-pagination {
+	margin-top: 2rem;
+
+	ul {
+		display: flex;
+		justify-content: center;
+		gap: 0.5rem;
+
+		> li {
+			&.selected {
+				> a {
+					font-weight: bolder;
+				}
+			}
+
+			&.disabled {
+				opacity: 0.75;
+				pointer-events: none;
+			}
+		}
+
+		a {
+			cursor: pointer;
+			padding-left: 8px;
+			padding-right: 8px;
+			font-weight: normal;
+		}
+	}
+}
