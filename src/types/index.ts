@@ -12,3 +12,12 @@ export type BookType = {
 	cover: string;
 	publicationDate: string;
 };
+
+export type FavoriteBookType = {
+	id: number;
+	title: string;
+	description: string;
+	author: string;
+	cover: string;
+	publicationDate: string;
+};

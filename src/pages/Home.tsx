@@ -38,7 +38,8 @@ const Home = () => {
 	const currentItems = data.slice(itemOffset, endOffset);
 	const pageCount = Math.ceil(data.length / itemsPerPage);
 
-	const handleChangePagination = (event: any) => {
+	// @ts-ignore
+	const handleChangePagination = (event) => {
 		const newOffset = (event.selected * itemsPerPage) % data.length;
 		setItemOffset(newOffset);
 	};

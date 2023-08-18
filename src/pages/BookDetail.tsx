@@ -2,16 +2,19 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { formatDate } from '../utils/formatDate';
 import { useEffect, useState } from 'react';
-import { BookType } from '../types';
+import { FavoriteBookType } from '../types';
 
 const BookDetail = () => {
 	const { id } = useParams();
 
 	const [favorites, setFavorites] = useState(
+		// @ts-ignore
 		JSON.parse(localStorage.getItem('favoriteBooks')) || []
 	);
 
-	const favoritesId = favorites.map((favorite: BookType) => favorite.id);
+	const favoritesId = favorites.map(
+		(favorite: FavoriteBookType) => favorite.id
+	);
 
 	useEffect(() => {
 		localStorage.setItem('favoriteBooks', JSON.stringify(favorites));
@@ -54,7 +57,7 @@ const BookDetail = () => {
 
 		if (isFavorite) {
 			const updatedFavorites = favorites.filter(
-				(item: BookType) => item.id !== data.id
+				(favorite: FavoriteBookType) => favorite.id !== data.id
 			);
 			setFavorites(updatedFavorites);
 		} else {

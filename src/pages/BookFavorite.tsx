@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
+import { FavoriteBookType } from '../types';
 
 const Favorite = () => {
 	const [favorites, setFavorites] = useState(
+		// @ts-ignore
 		JSON.parse(localStorage.getItem('favoriteBooks')) || []
 	);
 
 	const handleRemoveBook = (bookId: number) => {
 		const updatedFavorites = favorites.filter(
-			(favorite: any) => favorite.id !== bookId
+			(favorite: FavoriteBookType) => favorite.id !== bookId
 		);
 		setFavorites(updatedFavorites);
 	};
@@ -21,7 +23,7 @@ const Favorite = () => {
 			<h1 className="c-page-title">List of Favorite Books</h1>
 			{favorites.length ? (
 				<>
-					{favorites.map((item: any) => (
+					{favorites.map((item: FavoriteBookType) => (
 						<div
 							key={item.id}
 							className="c-card-horizontal">
