@@ -1,20 +1,21 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import Card from '../components/Card';
 import { BookType } from '../types';
+import { fetchBooks } from '../api';
 import ReactPaginate from 'react-paginate';
-import { useState } from 'react';
+import Card from '../components/Card';
+
 const Home = () => {
 	const [itemOffset, setItemOffset] = useState(0);
 	const itemsPerPage = 5;
 	const endOffset = itemOffset + itemsPerPage;
 
-	const fetchBooks = () =>
-		fetch('https://my-json-server.typicode.com/cutamar/mock/books').then(
-			(res) => res.json()
-		);
-
-	const { isLoading, isError, data } = useQuery({
+	const {
+		isLoading,
+		isError,
+		data: books,
+	} = useQuery({
 		queryKey: ['books'],
 		queryFn: fetchBooks,
 	});
@@ -35,12 +36,12 @@ const Home = () => {
 		);
 	}
 
-	const currentItems = data.slice(itemOffset, endOffset);
-	const pageCount = Math.ceil(data.length / itemsPerPage);
+	const currentItems = books.slice(itemOffset, endOffset);
+	const pageCount = Math.ceil(books.length / itemsPerPage);
 
 	// @ts-ignore
 	const handleChangePagination = (event) => {
-		const newOffset = (event.selected * itemsPerPage) % data.length;
+		const newOffset = (event.selected * itemsPerPage) % books.length;
 		setItemOffset(newOffset);
 	};
 

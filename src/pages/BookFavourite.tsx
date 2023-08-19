@@ -1,47 +1,33 @@
-import { useEffect, useState } from 'react';
+import { useFavouriteBooks } from '../context/FavouriteBooksContext';
 import { FavoriteBookType } from '../types';
 
 const Favorite = () => {
-	const [favorites, setFavorites] = useState(
-		// @ts-ignore
-		JSON.parse(localStorage.getItem('favoriteBooks')) || []
-	);
-
-	const handleRemoveBook = (bookId: number) => {
-		const updatedFavorites = favorites.filter(
-			(favorite: FavoriteBookType) => favorite.id !== bookId
-		);
-		setFavorites(updatedFavorites);
-	};
-
-	useEffect(() => {
-		localStorage.setItem('favoriteBooks', JSON.stringify(favorites));
-	}, [favorites]);
+	const { favouriteBooks, removeFavouriteBook } = useFavouriteBooks();
 
 	return (
 		<div className="container">
 			<h1 className="c-page-title">List of Favourite Books</h1>
-			{favorites.length ? (
+			{favouriteBooks.length ? (
 				<>
-					{favorites.map((item: FavoriteBookType) => (
+					{favouriteBooks.map((book: FavoriteBookType) => (
 						<div
-							key={item.id}
+							key={book.id}
 							className="c-card-horizontal">
 							<div className="c-card-horizontal__image">
 								<img
-									src={item.cover}
-									alt={item.title}
+									src={book.cover}
+									alt={book.title}
 								/>
 							</div>
 							<div className="c-card-horizontal__body">
-								<h3>{item.title}</h3>
+								<h3>{book.title}</h3>
 								<p>
-									<em>{item.author}</em>
+									<em>{book.author}</em>
 								</p>
 							</div>
 							<button
 								className="btn"
-								onClick={() => handleRemoveBook(item.id)}>
+								onClick={() => removeFavouriteBook(book.id)}>
 								Remove
 							</button>
 						</div>

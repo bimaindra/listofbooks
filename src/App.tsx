@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { FavouriteBooksProvider } from './context/FavouriteBooksContext';
 import Layout from './Layout';
 import Home from './pages/Home';
 import Favourite from './pages/BookFavourite';
@@ -7,7 +8,7 @@ import NotFound from './pages/NotFound';
 
 function App() {
 	return (
-		<>
+		<FavouriteBooksProvider>
 			<Layout>
 				<BrowserRouter>
 					<Routes>
@@ -30,7 +31,7 @@ function App() {
 					</Routes>
 				</BrowserRouter>
 			</Layout>
-		</>
+		</FavouriteBooksProvider>
 	);
 }
 

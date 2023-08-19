@@ -1,23 +1,21 @@
 import React from 'react';
 
-export type ChildrenType = {
+export interface ChildrenType {
 	children: React.ReactNode;
-};
+}
 
-export type BookType = {
+export interface BookType {
 	id: number;
 	title: string;
 	description: string;
 	author: string;
 	cover: string;
 	publicationDate: string;
-};
+}
 
-export type FavoriteBookType = {
+export interface FavoriteBookType {
 	id: number;
 	title: string;
-	description: string;
 	author: string;
 	cover: string;
-	publicationDate: string;
-};
+}

@@ -1,10 +1,7 @@
-import { useState } from 'react';
+import { useFavouriteBooks } from '../context/FavouriteBooksContext';
 
 const Header = () => {
-	const [favorites] = useState(
-		// @ts-ignore
-		JSON.parse(localStorage.getItem('favoriteBooks')) || []
-	);
+	const { favouriteBooks } = useFavouriteBooks();
 
 	return (
 		<header className="c-headernav">
@@ -17,7 +14,9 @@ const Header = () => {
 						</li>
 						<li>
 							<a href="/favourite">Favourite</a>
-							<span className="c-headernav__badge">{favorites.length}</span>
+							<span className="c-headernav__badge">
+								{favouriteBooks.length}
+							</span>
 						</li>
 					</ul>
 				</div>
