@@ -15,10 +15,7 @@ const BookDetail = () => {
 		data: book,
 	} = useQuery({
 		queryKey: ['book', id],
-		queryFn: async () => {
-			const result = await fetchBook(Number(id));
-			return result;
-		},
+		queryFn: () => fetchBook(Number(id)),
 	});
 
 	if (isLoading) {

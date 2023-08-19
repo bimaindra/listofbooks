@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useFavouriteBooks } from '../context/FavouriteBooksContext';
 
 const Header = () => {
@@ -10,10 +11,10 @@ const Header = () => {
 				<div className="c-headernav__menu">
 					<ul>
 						<li>
-							<a href="/">Home</a>
+							<Link to="/">Home</Link>
 						</li>
 						<li>
-							<a href="/favourite">Favourite</a>
+							<Link to="/favourite">Favourite</Link>
 							<span className="c-headernav__badge">
 								{favouriteBooks.length}
 							</span>

@@ -9,11 +9,11 @@ import NotFound from './pages/NotFound';
 function App() {
 	return (
 		<FavouriteBooksProvider>
-			<Layout>
-				<BrowserRouter>
+			<BrowserRouter>
+				<Layout>
 					<Routes>
 						<Route
-							index
+							path="/"
 							element={<Home />}
 						/>
 						<Route
@@ -29,8 +29,8 @@ function App() {
 							element={<NotFound />}
 						/>
 					</Routes>
-				</BrowserRouter>
-			</Layout>
+				</Layout>
+			</BrowserRouter>
 		</FavouriteBooksProvider>
 	);
 }
