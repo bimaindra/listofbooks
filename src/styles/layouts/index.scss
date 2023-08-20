@@ -15,8 +15,8 @@
 }
 
 main {
-	padding-top: 100px;
-	padding-bottom: 100px;
+	padding-top: 90px;
+	padding-bottom: 90px;
 }
 
 .grid {
@@ -25,6 +25,7 @@ main {
 	grid-template-columns: repeat(2, 1fr);
 
 	@include tablet-potrait {
+		gap: 2rem;
 		grid-template-columns: repeat(3, 1fr);
 	}
 }

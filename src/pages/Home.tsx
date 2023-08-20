@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { BookType } from '../types';
+import { BookType, FavoriteBookType } from '../types';
 import { fetchBooks } from '../api';
 import ReactPaginate from 'react-paginate';
 import Card from '../components/Card';
+import { useFavouriteBooks } from '../context/FavouriteBooksContext';
 
 const Home = () => {
+	const { isFavouriteBook, addFavouriteBook, removeFavouriteBook } =
+		useFavouriteBooks();
+
 	const [itemOffset, setItemOffset] = useState(0);
 	const itemsPerPage = 5;
 	const endOffset = itemOffset + itemsPerPage;
@@ -45,24 +48,34 @@ const Home = () => {
 		setItemOffset(newOffset);
 	};
 
+	const handleFavouriteBook = (book: FavoriteBookType) => {
+		if (isFavouriteBook(book.id)) {
+			removeFavouriteBook(book.id);
+		} else {
+			addFavouriteBook({
+				id: book.id,
+				title: book.title,
+				author: book.author,
+				cover: book.cover,
+			});
+		}
+	};
+
 	return (
 		<div className="container">
 			<h1 className="c-page-title">List of Books</h1>
 			<div className="grid">
 				{currentItems.map((book: BookType) => (
-					<Link
-						to={`/book/${book.id}`}
+					<Card
 						key={book.id}
-						className="c-link-initial">
-						<Card
-							id={book.id}
-							title={book.title}
-							description={book.description}
-							cover={book.cover}
-							author={book.author}
-							publicationDate={book.publicationDate}
-						/>
-					</Link>
+						id={book.id}
+						title={book.title}
+						description={book.description}
+						cover={book.cover}
+						author={book.author}
+						publicationDate={book.publicationDate}
+						onHandleFavourite={handleFavouriteBook}
+					/>
 				))}
 			</div>
 			<div className="center">
